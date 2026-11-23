@@ -44,7 +44,9 @@ soc-learning-log/
 *Study notes, routing labs, and Wireshark traffic analysis are currently in preparation.*
 
 ### 04. Scripts & Automation
-*Python and Bash log-analysis utilities will be published here alongside usage documentation.*
+| Script | Language | Purpose |
+| :--- | :--- | :--- |
+| **[lab-network-check.ps1](./04-scripts-and-tools/lab-network-check.ps1)** | PowerShell | Audits `WinNAT` state and verifies TCP reachability across L3 lab subnets |
 
 ---
 
