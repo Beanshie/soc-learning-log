@@ -44,9 +44,10 @@ soc-learning-log/
 *Study notes, routing labs, and Wireshark traffic analysis are currently in preparation.*
 
 ### 04. Scripts & Automation
-| Script | Language | Purpose |
-| :--- | :--- | :--- |
-| **[lab-network-check.ps1](./04-scripts-and-tools/lab-network-check.ps1)** | PowerShell | Audits `WinNAT` state and verifies TCP reachability across L3 lab subnets |
+| Script                                                                          | Language   | Purpose                                                                                             |
+| :------------------------------------------------------------------------------ | :--------- | :-------------------------------------------------------------------------------------------------- |
+| **[lab-network-check.ps1](./04-scripts-and-tools/lab-network-check.ps1)**       | PowerShell | Audits `WinNAT` state and verifies TCP reachability across L3 lab subnets                           |
+| **[proxmox-auto-shutdown.sh](./04-scripts-and-tools/proxmox-auto-shutdown.sh)** | Bash       | Automates daily hypervisor shutdown via `cron` with calendar exception support and `syslog` logging |
 
 ---
 
