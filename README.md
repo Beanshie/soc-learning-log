@@ -34,7 +34,7 @@ soc-learning-log/
 ### 01. Homelab & SIEM Infrastructure
 | Document                                                                                                     | Focus Area                                                           | Status          |
 | :----------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------- | :-------------- |
-| **[SOC Home Lab — Network & Infrastructure Architecture](./01-homelab-and-siem/network-architecture.md)**    | L3 Static Routing, Proxmox VE, Hyper-V, Cloudflare Zero Trust Tunnel | ✅ Completed     |
+| **[SOC Home Lab — Network & Infrastructure Architecture](network-architecture-v1-legacy.md.md)**    | L3 Static Routing, Proxmox VE, Hyper-V, Cloudflare Zero Trust Tunnel | ✅ Completed     |
 | **[SOC Home Lab — Services, SIEM & Telemetry Deployment](./01-homelab-and-siem/soc-services-deployment.md)** | Wazuh SIEM/XDR, Active Directory (AD DS/DNS), Sysmon, Wazuh Agents   | 🛠️ In Progress |
 
 ### 02. TryHackMe Defensive Labs
