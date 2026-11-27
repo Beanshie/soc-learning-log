@@ -32,11 +32,11 @@ soc-learning-log/
 ## 📑 Contents & Lab Index
 
 ### 01. Homelab & SIEM Infrastructure
-| Document | Focus Area | Status |
-| :--- | :--- | :--- |
-| [SOC Home Lab — Network & Infrastructure Architecture (v2)](01-homelab-and-siem/network-architecture.md) | Hybrid Dual-Mode L3 Routing, Proxmox VE, Hyper-V, Site-to-Site `tun0` over Cloudflare | ✅ Completed |
-| [SOC Home Lab — Network Architecture v1 (Legacy)](01-homelab-and-siem/network-architecture-v1-legacy.md) | Initial LAN Static Routing & SSH `ProxyJump` / `LocalForward` Design | 🗄️ Archived |
-| [SOC Home Lab — Services, SIEM & Telemetry Deployment](01-homelab-and-siem/soc-services-deployment.md) | Wazuh SIEM/XDR, Active Directory (AD DS/DNS), Sysmon, Wazuh Agents | 🛠️ In Progress |
+| Document                                                                                                 | Focus Area                                                                            | Status          |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------ | :-------------- |
+| [SOC Home Lab — Network & Infrastructure Architecture (v2)](01-homelab-and-siem/network-architecture.md) | Hybrid Dual-Mode L3 Routing, Proxmox VE, Hyper-V, Site-to-Site `tun0` over Cloudflare | ✅ Completed     |
+| [SOC Home Lab — Network Architecture v1 (Legacy)](01-homelab-and-siem/network-architecture-v1-legacy.md) | Initial LAN Static Routing & SSH `ProxyJump` / `LocalForward` Design                  | 🗄️ Archived    |
+| [SOC Home Lab — Services, SIEM & Telemetry Deployment](01-homelab-and-siem/soc-services-deployment.md)   | Wazuh SIEM/XDR, Active Directory (AD DS/DNS), Sysmon, Wazuh Agents                    | 🛠️ In Progress |
 
 ### 02. TryHackMe Defensive Labs
 Entries are added progressively as rooms in the SOC Level 1 learning path are completed.
