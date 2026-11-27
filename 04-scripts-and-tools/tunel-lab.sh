@@ -1,7 +1,25 @@
 #!/usr/bin/env bash
-# Manages the on-demand Site-to-Site Layer 3 IP tunnel (tun0) between
-# the Hyper-V SIEM edge router (10.10.20.10) and Proxmox VE (192.168.0.2)
-# encapsulated inside Cloudflare Zero Trust (TCP 443).
+# SYNOPSIS:
+#   On-demand Site-to-Site Layer 3 IP tunnel (tun0) orchestrator between the
+#   Hyper-V SIEM edge router (10.10.20.10) and Proxmox VE (192.168.0.2),
+#   encapsulated inside Cloudflare Zero Trust (TCP 443).
+#
+# PREREQUISITES:
+#   - Proxmox VE: 'PermitTunnel point-to-point' in /etc/ssh/sshd_config and
+#     persistent 'net.ipv4.ip_forward = 1'.
+#   - rocky-hyper: 'cloudflared' installed, passwordless Ed25519 SSH key,
+#     'net.ipv4.ip_forward = 1', and 'proxmox-wan' alias in /root/.ssh/config.
+#
+# INSTALLATION (on rocky-hyper as root):
+#   1. Copy this script to /root/tunel-lab.sh:
+#      cp tunel-lab.sh /root/tunel-lab.sh
+#   2. Make it executable:
+#      chmod +x /root/tunel-lab.sh
+#
+# USAGE:
+#   /root/tunel-lab.sh start   # Establish tun0 (10.10.99.0/30) & update routes
+#   /root/tunel-lab.sh stop    # Tear down tun0 & restore dorm LAN route on PVE
+#   /root/tunel-lab.sh status  # Check tun0 interface state and active L3 route
 
 set -euo pipefail
 

@@ -1,8 +1,31 @@
-#!/bin/bash
-# Scheduled Proxmox VE shutdown utility (23:00 daily) with calendar exception support.
-# Installation:
-#   cp proxmox-auto-shutdown.sh /usr/local/bin/auto-shutdown && chmod +x /usr/local/bin/auto-shutdown
-#   echo "0 23 * * * root /usr/local/bin/auto-shutdown check" > /etc/cron.d/auto-shutdown
+#!/usr/bin/env bash
+# SYNOPSIS:
+#   Scheduled Proxmox VE shutdown utility (23:00 daily) with calendar exception
+#   support and automatic expiration cleanup.
+#
+# HOW IT WORKS:
+#   - Triggered daily at 23:00 via cron ('auto-shutdown check') and logs decisions
+#     to syslog/journald ('journalctl -t auto-shutdown').
+#   - Stores single-day or inclusive date-range exemptions in
+#     /etc/auto-shutdown-exceptions (YYYY-MM-DD) and purges expired entries.
+#   - Invokes '/sbin/shutdown -h now', which triggers Proxmox VE's pve-guests
+#     service to stop running VMs before powering off the bare-metal host.
+#
+# INSTALLATION (on Proxmox VE as root):
+#   1. Install the binary to /usr/local/bin and make it executable:
+#      cp proxmox-auto-shutdown.sh /usr/local/bin/auto-shutdown
+#      chmod +x /usr/local/bin/auto-shutdown
+#
+#   2. Register the daily 23:00 cron job:
+#      echo "0 23 * * * root /usr/local/bin/auto-shutdown check" > /etc/cron.d/auto-shutdown
+#
+# USAGE:
+#   auto-shutdown status                # Show today's status & active exceptions
+#   auto-shutdown today                 # Skip shutdown tonight (23:00)
+#   auto-shutdown 28-11-2026            # Skip shutdown on a specific date
+#   auto-shutdown 27-11-2026 29-11-2026 # Skip shutdown across a date range
+#   auto-shutdown del 28-11-2026        # Remove exception matching given date
+#   auto-shutdown clear                 # Remove all scheduled exceptions
 
 CONF_FILE="/etc/auto-shutdown-exceptions"
 touch "$CONF_FILE"
