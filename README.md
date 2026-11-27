@@ -32,22 +32,25 @@ soc-learning-log/
 ## 📑 Contents & Lab Index
 
 ### 01. Homelab & SIEM Infrastructure
-| Document                                                                                                     | Focus Area                                                           | Status          |
-| :----------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------- | :-------------- |
-| **[SOC Home Lab — Network & Infrastructure Architecture](network-architecture-v1-legacy.md.md)**    | L3 Static Routing, Proxmox VE, Hyper-V, Cloudflare Zero Trust Tunnel | ✅ Completed     |
-| **[SOC Home Lab — Services, SIEM & Telemetry Deployment](./01-homelab-and-siem/soc-services-deployment.md)** | Wazuh SIEM/XDR, Active Directory (AD DS/DNS), Sysmon, Wazuh Agents   | 🛠️ In Progress |
+| Document | Focus Area | Status |
+| :--- | :--- | :--- |
+| [SOC Home Lab — Network & Infrastructure Architecture (v2)](01-homelab-and-siem/network-architecture.md) | Hybrid Dual-Mode L3 Routing, Proxmox VE, Hyper-V, Site-to-Site `tun0` over Cloudflare | ✅ Completed |
+| [SOC Home Lab — Network Architecture v1 (Legacy)](01-homelab-and-siem/network-architecture-v1-legacy.md) | Initial LAN Static Routing & SSH `ProxyJump` / `LocalForward` Design | 🗄️ Archived |
+| [SOC Home Lab — Services, SIEM & Telemetry Deployment](01-homelab-and-siem/soc-services-deployment.md) | Wazuh SIEM/XDR, Active Directory (AD DS/DNS), Sysmon, Wazuh Agents | 🛠️ In Progress |
 
 ### 02. TryHackMe Defensive Labs
-*Entries are added progressively as rooms in the **SOC Level 1** learning path are completed.*
+Entries are added progressively as rooms in the SOC Level 1 learning path are completed.
 
 ### 03. Networking & Certifications (CCNA)
-*Study notes, routing labs, and Wireshark traffic analysis are currently in preparation.*
+Study notes, routing labs, and Wireshark traffic analysis are currently in preparation.
 
 ### 04. Scripts & Automation
-| Script                                                                          | Language   | Purpose                                                                                             |
-| :------------------------------------------------------------------------------ | :--------- | :-------------------------------------------------------------------------------------------------- |
-| **[lab-network-check.ps1](./04-scripts-and-tools/lab-network-check.ps1)**       | PowerShell | Audits `WinNAT` state and verifies TCP reachability across L3 lab subnets                           |
-| **[proxmox-auto-shutdown.sh](./04-scripts-and-tools/proxmox-auto-shutdown.sh)** | Bash       | Automates daily hypervisor shutdown via `cron` with calendar exception support and `syslog` logging |
+| Script | Language | Purpose |
+| :--- | :--- | :--- |
+| [soc-lab.ps1](04-scripts-and-tools/soc-lab.ps1) | PowerShell | Context-aware lab orchestrator (`start` / `stop` / `status`) managing VM states, `WinNAT`, route metrics, and L3 tunnel lifecycle |
+| [tunel-lab.sh](04-scripts-and-tools/tunel-lab.sh) | Bash | Establishes and tears down the on-demand Site-to-Site Layer 3 tunnel (`tun0`, `10.10.99.0/30`) over Cloudflare Zero Trust |
+| [lab-network-check.ps1](04-scripts-and-tools/lab-network-check.ps1) | PowerShell | Audits active L3 routes, `WinNAT` state, and TCP port reachability across all lab subnets |
+| [proxmox-auto-shutdown.sh](04-scripts-and-tools/proxmox-auto-shutdown.sh) | Bash | Automates daily hypervisor shutdown (`23:00`) via cron with calendar exception support and syslog logging |
 
 ---
 
