@@ -42,7 +42,7 @@ case "${1:-}" in
       -o ServerAliveInterval=15 \
       -o ServerAliveCountMax=3 \
       -o ExitOnForwardFailure=yes \
-      "${REMOTE_HOST}"
+      "${REMOTE_HOST}" >/dev/null 2>&1 </dev/null
 
     for i in {1..15}; do
       ip link show tun0 >/dev/null 2>&1 && break
@@ -64,7 +64,7 @@ case "${1:-}" in
 
     echo "=== L3 TUNNEL VERIFICATION ==="
     ping -c 2 -W 2 "${TUN_REMOTE}" >/dev/null && echo "[OK] Point-to-point tun0 (${TUN_REMOTE})"
-    ping -c 2 -W 2 10.10.10.10 >/dev/null && echo "[OK] rocky-hyper -> rocky-pve (10.10.10.10)"
+    ping -c 2 -W 2 10.10.10.1 >/dev/null && echo "[OK] rocky-hyper -> Proxmox vmbr1 gateway (10.10.10.1)"
     ;;
 
   stop)
